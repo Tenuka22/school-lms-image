@@ -2,11 +2,12 @@ FROM odoo:19.0
 
 LABEL org.opencontainers.image.title="school-lms" \
       org.opencontainers.image.description="OpenEduCat 19.0 addons on top of the official Odoo 19.0 image" \
-      org.opencontainers.image.source="https://gitlab.com/Tenuka22/school-lms"
+      org.opencontainers.image.source="https://github.com/Tenuka22/school-lms"
 
-# Branch 19.0 tracks upstream OpenEduCat. Pin to a commit SHA
-# (https://github.com/openeducat/openeducat_erp/commits/19.0) for a reproducible image.
-ARG OPENEDUCAT_TARBALL=https://codeload.github.com/openeducat/openeducat_erp/tar.gz/refs/heads/19.0
+# Builds from the fork so local customisations survive. The fork tracks
+# openeducat/openeducat_erp (synced weekly by the workflow in that repo);
+# override this ARG to build straight from upstream.
+ARG OPENEDUCAT_TARBALL=https://codeload.github.com/Tenuka22/openeducat_erp/tar.gz/refs/heads/19.0
 
 ENV PYTHONUNBUFFERED=1
 

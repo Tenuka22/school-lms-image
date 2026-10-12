@@ -4,7 +4,7 @@ services:
   openeducat:
     build:
       context: .
-    image: registry.gitlab.com/tenuka22/school-lms:19.0
+    image: docker.io/tenuka22/school-lms:19.0
     depends_on:
       db:
         condition: service_healthy
